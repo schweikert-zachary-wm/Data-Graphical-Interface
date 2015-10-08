@@ -33,3 +33,6 @@ function drawTitleSubtitle() {
     var material = new google.charts.Bar(document.getElementById('chart_div'));
     material.draw(data, options);
 }
+
+
+/** Another thing to commit */
