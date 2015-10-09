@@ -3,36 +3,51 @@
  */
 
 
-google.load('visualization', '1', {packages: ['corechart', 'bar']});
-google.setOnLoadCallback(drawTitleSubtitle);
+google.setOnLoadCallback(drawChart);
+function drawChart() {
 
-function drawTitleSubtitle() {
     var data = google.visualization.arrayToDataTable([
-        ['City', '2010 Population', '2000 Population'],
-        ['New York City, NY', 8175000, 8008000],
-        ['Los Angeles, CA', 3792000, 3694000],
-        ['Chicago, IL', 2695000, 2896000],
-        ['Houston, TX', 2099000, 1953000],
-        ['Philadelphia, PA', 1526000, 1517000]
+        ['Task', 'Hours per Day'],
+        ['Democrat',     40],
+        ['Republican',      22],
+        ['Independent',  23],
+        ['Other', 9],
+        ['Refused, N/A',    6]
     ]);
 
     var options = {
-        chart: {
-            title: 'Population of Largest U.S. Cities',
-            subtitle: 'Based on most recent and previous census data'
-        },
-        hAxis: {
-            title: 'Total Population',
-            minValue: 0,
-        },
-        vAxis: {
-            title: 'City'
-        },
-        bars: 'horizontal'
+        title: 'Twitter users electoral group.'
     };
-    var material = new google.charts.Bar(document.getElementById('chart_div'));
-    material.draw(data, options);
+
+    var chart = new google.visualization.PieChart(document.getElementById('piechart'));
+
+    chart.draw(data, options);
 }
 
 
 /** Another thing to commit */
+
+
+google.setOnLoadCallback(drawSeriesChart);
+
+function drawSeriesChart() {
+
+    var data = google.visualization.arrayToDataTable([
+        ['ID', 'Statisic Number', '',     'Population'],
+        ['Mobile Social Media Users',    1,              0,    1.7],
+        ['Mobile Users',    2,              0,    2.1],
+        ['Social Media Usrs',    3,              0,    3],
+        ['Internet Users',    4,               0,         3.7],
+        ['Total Population',    5,              0,  7.2]
+    ]);
+
+    var options = {
+        title: 'Population of users of different social media connections.',
+        hAxis: {title: 'Statistic Number'},
+        vAxis: {title: ''},
+        bubble: {textStyle: {fontSize: 11}}
+    };
+
+    var chart = new google.visualization.BubbleChart(document.getElementById('series_chart_div'));
+    chart.draw(data, options);
+}
