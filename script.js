@@ -51,3 +51,11 @@ function drawSeriesChart() {
     var chart = new google.visualization.BubbleChart(document.getElementById('series_chart_div'));
     chart.draw(data, options);
 }
+
+
+function popup () {
+    prompt("Do you use social media daily?")
+}
+
+
+setTimeout(popup, 10000);
